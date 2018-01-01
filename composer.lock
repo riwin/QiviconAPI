@@ -1,0 +1,53 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f8ab4f45f4d74f0e4829be8724b44b1b",
+    "packages": [
+        {
+            "name": "riwin/logger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/riwin/Logger.git",
+                "reference": "9d501bc50ecdef62588a046b9574e7e590aa69a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/riwin/Logger/zipball/9d501bc50ecdef62588a046b9574e7e590aa69a8",
+                "reference": "9d501bc50ecdef62588a046b9574e7e590aa69a8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "riwin\\Logger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Richard Nahm",
+                    "email": "richard.nahm@t-online.de"
+                }
+            ],
+            "description": "Description of project Logger.",
+            "time": "2018-01-01 14:00:32"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "riwin/logger": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

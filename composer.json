@@ -1,0 +1,19 @@
+{
+    "name": "riwin/qivicon-a-p-i",
+    "description": "Description of project QiviconAPI.",
+    "authors": [
+        {
+            "name": "Richard Nahm",
+            "email": "richard.nahm@t-online.de"
+        }
+    ],
+    "require": {
+        "riwin/logger": "dev-master"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "riwin\\QiviconAPI\\": "src/"
+        }
+    }
+}
