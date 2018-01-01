@@ -5,151 +5,147 @@
 ```
 <?php
 require_once 'vendor/autoload.php';
+header("Content-Type: application/json");
 $api = new \riwin\QiviconAPI\QiviconAPI("hostname-Homebase", "email@mein.qivicon", "Passwort");
-if (isset($_GET['module']) && isset($_GET['cmd'])) {
-    call_user_func('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module'] . '::' . $_GET['cmd'])->getBody();
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-}
+print_r($api->execute());
 ```
 
 
 
-## * Modul - AlarmSystem:
+## Modul - AlarmSystem:
 
-### * Alarm scharf schalten:
+### Alarm scharf schalten:
 ```
     /index.php?module=AlarmSystem&cmd=activateAlarmSystem
 ```
 
-### * Alarm unscharf schalten:
+### Alarm unscharf schalten:
     /index.php?module=AlarmSystem&cmd=deactivateAlarmSystem
 
-### * Ausgelösten Alarm beenden:
+### Ausgelösten Alarm beenden:
 ```
     /index.php?module=AlarmSystem&cmd=deactivateAlarm
 ```
 
-### * Alarm System Eigenschaften anzeigen:
+### Alarm System Eigenschaften anzeigen:
 ```
     /index.php?module=AlarmSystem&cmd=getAlarmSystemProperties
 ```
 
 
-## * Modul - Generic
+## Modul - Generic
 
-### * Dashboard-Info:
+### Dashboard-Info:
 ```
     /index.php?module=Generic&cmd=getDashboardInfo
 ```
 
-### * Homebase Eigenschaften:
+### Homebase Eigenschaften:
 ```
     /index.php?module=Generic&cmd=getHomeboxProperties
 ```
 
-### * Räume mit Geräten/Kanälen:
+### Räume mit Geräten/Kanälen:
 ```
     /index.php?module=Generic&cmd=listRooms
 ```
 
 
-## * Modul - Situation
+## Modul - Situation
 
-### * Haushüter an:
+### Haushüter an:
 ```
     /index.php?module=Situation&cmd=activateVirtualResident
 ```
 
-### * Haushüter aus:
+### Haushüter aus:
 ```
     /index.php?module=Situation&cmd=deactivateVirtualResident
 ```
 
-### * Haushüter Ereignisse:
+### Haushüter Ereignisse:
 ```
     /index.php?module=Situation&cmd=getVirtualResidentProperties
 ```
 
-### * Situationen auflisten:
+### Situationen auflisten:
 ```
     /index.php?module=Situation&cmd=listSituations
 ```
 
-### * Situation anzeigen:
+### Situation anzeigen:
 ```
     /index.php?module=Situation&cmd=getSituation&param_id={situationId}
 ```
 
-### * Situation de- / aktivieren:
+### Situation de- / aktivieren:
 ```
     /index.php?module=Situation&cmd=setSituationState&param_id={situationId}&param_active={true|false}
 ```
 
 
-## * Modul - Notification
+## Modul - Notification
 
-### * Benachrichtigungen auflisten:
+### Benachrichtigungen auflisten:
 ```
     /index.php?module=Notification&cmd=listNotifications
 ```
 
 
 
-## * Modul - Device
+## Modul - Device
 
-### * Anwesend einstellen:
+### Anwesend einstellen:
 ```
     /index.php?module=Device&cmd=setHomeStatePresent
 ```
 
-### * Abwesend einstellen:
+### Abwesend einstellen:
 ```
     /index.php?module=Device&cmd=setHomeStateAway
 ```
 
-### * Dimmer einstellen (0-100):
+### Dimmer einstellen (0-100):
 ```
     /index.php?module=Device&cmd=setDimmerCommand&param_uids={uid}&param_level={0-100}
 ```
 
-### * setHueCommand
+### setHueCommand
 ```
     /index.php?module=Device&cmd=setHueCommand&param_uid={uid}&param_isCombinedBulb={true|false}&param_hue={0-360}&param_saturation={0-100}&param_brightness={0-100}
 ```
 
-### * setJunkersHotWaterState
+### setJunkersHotWaterState
 ```
     /index.php?module=Device&cmd=setJunkersHotWaterState&param_uid={uid}&param_state={0-1}
 ```
 
-### * setMieleState
+### setMieleState
 ```
     /index.php?module=Device&cmd=setMieleState&param_uid={uid}&param_active={true|false}
 ```
 
-### * setPlugState
+### setPlugState
 ```
     /index.php?module=Device&cmd=setPlugState&param_uid={uid}&param_state={0-1}
 ```
 
-### * setShutterCommand
+### setShutterCommand
 ```
     /index.php?module=Device&cmd=setShutterCommand&param_uid={uid}&param_level={0-100}
 ```
 
-### * setSonosControlPlayer
+### setSonosControlPlayer
 ```
     /index.php?module=Device&cmd=setSonosControlPlayer&param_uid={uid}&param_control={PLAY,PAUSE,PREVIOUS,NEXT}
 ```
 
-### * setSonosVolume
+### setSonosVolume
 ```
     /index.php?module=Device&cmd=setSonosVolume&param_uid={uid}&param_volume={0-100}
 ```
 
-### * setTunableWhiteValuesCommand
+### setTunableWhiteValuesCommand
 ```
     /index.php?module=Device&cmd=setTunableWhiteValuesCommand&param_uid={uid}&param_brightness={0-100}&param_colorTemperature={0-100}
 ```
@@ -158,7 +154,7 @@ if (isset($_GET['logout'])) {
 
 
 
-### * Sitzung beenden (logout):
+### Sitzung beenden (logout):
 ```
     /index.php?logout
 ```
