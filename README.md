@@ -4,7 +4,7 @@
 
 ```
 <?php
-require_once 'lib/riwin/Autoloader_024fc5f605c9d329833c4de0633a3183.php';
+require_once 'vendor/autoload.php';
 $api = new \riwin\QiviconAPI\QiviconAPI("hostname-Homebase", "email@mein.qivicon", "Passwort");
 if (isset($_GET['module']) && isset($_GET['cmd'])) {
     call_user_func('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module'] . '::' . $_GET['cmd'])->getBody();
