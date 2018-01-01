@@ -1,6 +1,6 @@
 {
     "name": "riwin/qivicon-api",
-    "description": "Description of project QiviconAPI.",
+    "description": "PHP-API to access a Qivicon Homebase.",
     "authors": [
         {
             "name": "Richard Nahm",
@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "riwin/logger": "dev-master"
+        "riwin/logger": "*"
     },
     "license": "MIT",
     "autoload": {
