@@ -1,5 +1,22 @@
 # QiviconAPI
 
+## Installation:
+
+```
+composer require riwin/qivicon-api
+```
+
+or
+
+```
+{
+    "require": {
+        "riwin/qivicon-api": "dev-master"
+    }
+}
+```
+
+
 ## API einbinden:
 
 ```
