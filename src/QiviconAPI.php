@@ -82,30 +82,82 @@ class QiviconAPI {
         session_start();
 
         $this->httpClient = new \riwin\QiviconAPI\HTTPClient();
-        
-        if($hostname !== "global.telekom.com"){
 
-        /*
-         * local
-         */
-        
-        $this->oauth = new \riwin\QiviconAPI\OAuth("de.telekom.smarthomeb2c.core.aos", "YFBAYJU5P6QCYKUT3J3I", $hostname, "/system/oauth/token", "/system/oauth/authorize", null);
-        }else{
-        /*
-         * remote
-         */
-        
-        $this->oauth = new \riwin\QiviconAPI\OAuth("yERCcGPUR9", "", $hostname , "/gcp-web-api/oauth", "/gcp-web-api/oauth", "TB4DAJ7S");
-            
+        if ($hostname !== "global.telekom.com") {
+
+            /*
+             * local
+             */
+
+            $this->oauth = new \riwin\QiviconAPI\OAuth("de.telekom.smarthomeb2c.core.aos", "YFBAYJU5P6QCYKUT3J3I", $hostname, "/system/oauth/token", "/system/oauth/authorize", null);
+        } else {
+            /*
+             * remote
+             */
+
+            $this->oauth = new \riwin\QiviconAPI\OAuth("yERCcGPUR9", "", $hostname, "/gcp-web-api/oauth", "/gcp-web-api/oauth", "TB4DAJ7S");
         }
         QiviconAPI::setInstance($this);
         $this->rpc = new \riwin\QiviconAPI\RPC($hostname);
         if (!$this->restoreSession()) {
             \riwin\Logger\Logger::debug("Session restore failed. Trying Credentials...");
-            if(!$this->login($username, $password)){
+            if (!$this->login($username, $password)) {
                 throw new \riwin\QiviconAPI\Exceptions\OAuthException("Please Check your User-Credentials!");
             }
         }
+    }
+
+    public function execute($asJson = true, $withLog = true) {
+        $out = [];
+        try {
+
+            if (isset($_GET['getAccessToken'])) {
+                $out['token'] = $this->OAuth()->getAccessToken();
+            }
+            if (isset($_GET['logout'])) {
+                session_destroy();
+                $out['logout'] = true;
+            } elseif (!isset($_GET['module']) OR $_GET['module'] == "") {
+                throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'module' fehlt oder ist leer.");
+            } elseif (!isset($_GET['cmd']) OR $_GET['cmd'] == "") {
+                throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'cmd' fehlt oder ist leer.");
+            }
+            $response = json_decode(call_user_func('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module'] . '::' . $_GET['cmd'])->getBody());
+            $out['rpc_response'] = $response;
+        } catch (Exception $exc) {
+            $out['error'] = $this->renderException($exc);
+        } catch (\riwin\QiviconAPI\Exceptions\HTTPClientException $exc) {
+            $out['error'] = $this->renderException($exc);
+        } catch (\riwin\QiviconAPI\Exceptions\OAuthException $exc) {
+            $out['error'] = $this->renderException($exc);
+        } catch (\riwin\QiviconAPI\Exceptions\QiviconAPIException $exc) {
+            $out['error'] = $this->renderException($exc);
+        } catch (\riwin\QiviconAPI\Exceptions\RPCException $exc) {
+            $out['error'] = $this->renderException($exc);
+        } finally {
+            
+        }
+
+        if ($withLog) {
+            $out['log'] = \riwin\Logger\Logger::get();
+        }
+        if ($asJson) {
+            $out = json_encode($out);
+        }
+        return $out;
+    }
+
+    private function renderException($exc) {
+        $__className = get_class($exc);
+        $__classNameArr = explode("\\", $__className);
+        $type = $__classNameArr[count($__classNameArr) - 1];
+        $error = [
+            'message' => $exc->getMessage(),
+            'type' => $type,
+            'code' => $exc->getCode()
+        ];
+        $error = (object) $error;
+        return $error;
     }
 
     public function updateSession() {
