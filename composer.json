@@ -1,5 +1,5 @@
 {
-    "name": "riwin/QiviconAPI",
+    "name": "riwin/qivicon-api",
     "description": "PHP-API to access a Qivicon Homebase.",
     "authors": [
         {

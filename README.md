@@ -3,7 +3,7 @@
 ## Installation:
 
 ```
-composer require riwin/QiviconAPI
+composer require riwin/qivicon-api
 ```
 
 or
@@ -11,7 +11,7 @@ or
 ```
 {
     "require": {
-        "riwin/QiviconAPI": "dev-master"
+        "riwin/qivicon-api": "dev-master"
     }
 }
 ```
