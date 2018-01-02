@@ -33,20 +33,20 @@ print_r($api->execute());
 
 ### Alarm scharf schalten:
 ```
-    /index.php?module=AlarmSystem&cmd=activateAlarmSystem
+/index.php?module=AlarmSystem&cmd=activateAlarmSystem
 ```
 
 ### Alarm unscharf schalten:
-    /index.php?module=AlarmSystem&cmd=deactivateAlarmSystem
+/index.php?module=AlarmSystem&cmd=deactivateAlarmSystem
 
 ### Ausgelösten Alarm beenden:
 ```
-    /index.php?module=AlarmSystem&cmd=deactivateAlarm
+/index.php?module=AlarmSystem&cmd=deactivateAlarm
 ```
 
 ### Alarm System Eigenschaften anzeigen:
 ```
-    /index.php?module=AlarmSystem&cmd=getAlarmSystemProperties
+/index.php?module=AlarmSystem&cmd=getAlarmSystemProperties
 ```
 
 
@@ -54,17 +54,17 @@ print_r($api->execute());
 
 ### Dashboard-Info:
 ```
-    /index.php?module=Generic&cmd=getDashboardInfo
+/index.php?module=Generic&cmd=getDashboardInfo
 ```
 
 ### Homebase Eigenschaften:
 ```
-    /index.php?module=Generic&cmd=getHomeboxProperties
+/index.php?module=Generic&cmd=getHomeboxProperties
 ```
 
 ### Räume mit Geräten/Kanälen:
 ```
-    /index.php?module=Generic&cmd=listRooms
+/index.php?module=Generic&cmd=listRooms
 ```
 
 
@@ -72,32 +72,32 @@ print_r($api->execute());
 
 ### Haushüter an:
 ```
-    /index.php?module=Situation&cmd=activateVirtualResident
+/index.php?module=Situation&cmd=activateVirtualResident
 ```
 
 ### Haushüter aus:
 ```
-    /index.php?module=Situation&cmd=deactivateVirtualResident
+/index.php?module=Situation&cmd=deactivateVirtualResident
 ```
 
 ### Haushüter Ereignisse:
 ```
-    /index.php?module=Situation&cmd=getVirtualResidentProperties
+/index.php?module=Situation&cmd=getVirtualResidentProperties
 ```
 
 ### Situationen auflisten:
 ```
-    /index.php?module=Situation&cmd=listSituations
+/index.php?module=Situation&cmd=listSituations
 ```
 
 ### Situation anzeigen:
 ```
-    /index.php?module=Situation&cmd=getSituation&param_id={situationId}
+/index.php?module=Situation&cmd=getSituation&param_id={situationId}
 ```
 
 ### Situation de- / aktivieren:
 ```
-    /index.php?module=Situation&cmd=setSituationState&param_id={situationId}&param_active={true|false}
+/index.php?module=Situation&cmd=setSituationState&param_id={situationId}&param_active={true|false}
 ```
 
 
@@ -105,7 +105,7 @@ print_r($api->execute());
 
 ### Benachrichtigungen auflisten:
 ```
-    /index.php?module=Notification&cmd=listNotifications
+/index.php?module=Notification&cmd=listNotifications
 ```
 
 
@@ -114,57 +114,57 @@ print_r($api->execute());
 
 ### Anwesend einstellen:
 ```
-    /index.php?module=Device&cmd=setHomeStatePresent
+/index.php?module=Device&cmd=setHomeStatePresent
 ```
 
 ### Abwesend einstellen:
 ```
-    /index.php?module=Device&cmd=setHomeStateAway
+/index.php?module=Device&cmd=setHomeStateAway
 ```
 
 ### Dimmer einstellen (0-100):
 ```
-    /index.php?module=Device&cmd=setDimmerCommand&param_uids={uid}&param_level={0-100}
+/index.php?module=Device&cmd=setDimmerCommand&param_uids={uid}&param_level={0-100}
 ```
 
 ### setHueCommand
 ```
-    /index.php?module=Device&cmd=setHueCommand&param_uid={uid}&param_isCombinedBulb={true|false}&param_hue={0-360}&param_saturation={0-100}&param_brightness={0-100}
+/index.php?module=Device&cmd=setHueCommand&param_uid={uid}&param_isCombinedBulb={true|false}&param_hue={0-360}&param_saturation={0-100}&param_brightness={0-100}
 ```
 
 ### setJunkersHotWaterState
 ```
-    /index.php?module=Device&cmd=setJunkersHotWaterState&param_uid={uid}&param_state={0-1}
+/index.php?module=Device&cmd=setJunkersHotWaterState&param_uid={uid}&param_state={0-1}
 ```
 
 ### setMieleState
 ```
-    /index.php?module=Device&cmd=setMieleState&param_uid={uid}&param_active={true|false}
+/index.php?module=Device&cmd=setMieleState&param_uid={uid}&param_active={true|false}
 ```
 
 ### setPlugState
 ```
-    /index.php?module=Device&cmd=setPlugState&param_uid={uid}&param_state={0-1}
+/index.php?module=Device&cmd=setPlugState&param_uid={uid}&param_state={0-1}
 ```
 
 ### setShutterCommand
 ```
-    /index.php?module=Device&cmd=setShutterCommand&param_uid={uid}&param_level={0-100}
+/index.php?module=Device&cmd=setShutterCommand&param_uid={uid}&param_level={0-100}
 ```
 
 ### setSonosControlPlayer
 ```
-    /index.php?module=Device&cmd=setSonosControlPlayer&param_uid={uid}&param_control={PLAY,PAUSE,PREVIOUS,NEXT}
+/index.php?module=Device&cmd=setSonosControlPlayer&param_uid={uid}&param_control={PLAY,PAUSE,PREVIOUS,NEXT}
 ```
 
 ### setSonosVolume
 ```
-    /index.php?module=Device&cmd=setSonosVolume&param_uid={uid}&param_volume={0-100}
+/index.php?module=Device&cmd=setSonosVolume&param_uid={uid}&param_volume={0-100}
 ```
 
 ### setTunableWhiteValuesCommand
 ```
-    /index.php?module=Device&cmd=setTunableWhiteValuesCommand&param_uid={uid}&param_brightness={0-100}&param_colorTemperature={0-100}
+/index.php?module=Device&cmd=setTunableWhiteValuesCommand&param_uid={uid}&param_brightness={0-100}&param_colorTemperature={0-100}
 ```
 
 
@@ -173,6 +173,6 @@ print_r($api->execute());
 
 ### Sitzung beenden (logout):
 ```
-    /index.php?logout
+/index.php?logout
 ```
 
