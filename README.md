@@ -1,11 +1,11 @@
 # QiviconAPI
 ## Homebase Kompatibilität:
-[![QHB1](https://img.shields.io/badge/Homebase_1-kompatibel-brightgreen.svg?style=flat-square)]() 
-[![QHB2](https://img.shields.io/badge/Homebase_2-kompatibel-brightgreen.svg?style=flat-square)]() 
-[![SPS](https://img.shields.io/badge/Speedport_Smart-kompatibel-brightgreen.svg?style=flat-square)]()
+[![QHB](https://img.shields.io/badge/QIVICON_Home_Base-nicht_getestet-orange.svg?style=flat-square)](https://www.qivicon.com/de/produkte/produktinformationen/qivicon-home-base/) 
+[![QHB2](https://img.shields.io/badge/QIVICON_Home_Base_2.0-kompatibel-brightgreen.svg?style=flat-square)](https://www.qivicon.com/de/produkte/produktinformationen/qivicon-home-base-2-0/) 
+[![SPS](https://img.shields.io/badge/Speedport_Smart-kompatibel-brightgreen.svg?style=flat-square)](https://www.qivicon.com/de/produkte/produktinformationen/telekom-speedport-smart)
 
 ## Status:
-[![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)](https://packagist.org/packages/riwin/qivicon-api) [![license](https://img.shields.io/github/license/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub issues](https://img.shields.io/github/issues/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/riwin/qivicon-api.svg?style=flat-square)]()
+[![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)](https://packagist.org/packages/riwin/qivicon-api) [![license](https://img.shields.io/github/license/riwin/qivicon-api.svg?style=flat-square)](https://github.com/riwin/QiviconAPI/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/riwin/qivicon-api.svg?style=flat-square)](https://github.com/riwin/QiviconAPI/issues) [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/riwin/qivicon-api.svg?style=flat-square)]
 ## Installation:
 
 ```
