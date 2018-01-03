@@ -79,4 +79,5 @@ class Temperature {
                     'level' => floatval($targetTemperature),
                     'room' => $room]);
     }
+    
 }
