@@ -87,4 +87,17 @@ class Situation {
     public static function listAvailableSoundFiles() {
         return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'listAvailableSoundFiles']);
     }
+    
+    /*
+     * removeSituation
+     */
+
+    public static function removeSituation() {
+        if(!isset($_GET['param_id']) OR $_GET['param_id'] == ""){
+            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_id' fehlt oder ist leer.");
+        }
+        $id = $_GET['param_id'];
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'removeSituation',
+                                                                                                'situationId' => $id]);
+    }    
 }

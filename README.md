@@ -100,6 +100,16 @@ print_r($api->execute());
 /index.php?module=Situation&cmd=setSituationState&param_id={situationId}&param_active={true|false}
 ```
 
+### Situation löschen:
+```
+/index.php?module=Situation&cmd=removeSituation&param_id={situationId}
+```
+
+### Verfügbare Soundfiles auflisten:
+```
+/index.php?module=Situation&cmd=listAvailableSoundFiles
+```
+
 
 ## Modul - Notification
 
