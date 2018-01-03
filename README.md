@@ -179,6 +179,20 @@ print_r($api->execute());
 
 
 
+## Modul - Temperature
+
+### setDeviceTemperature:
+```
+/index.php?module=Device&cmd=setDeviceTemperature&parm_uid={uid}&param_targetTemperature={temperature}
+```
+
+### setJunkersHotWaterDeviceTemperature:
+```
+/index.php?module=Device&cmd=setJunkersHotWaterDeviceTemperature&parm_uid={uid}&param_targetTemperature={temperature}
+```
+
+
+
 
 
 ### Sitzung beenden (logout):
