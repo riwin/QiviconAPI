@@ -87,6 +87,7 @@ class QiviconAPI {
     }
 
     public function __construct($hostname, $username, $password) {
+        \riwin\Logger\Logger::setLogLevel(\riwin\Logger\Logger::LEVEL_INFO);
         \riwin\Logger\Logger::debug("Constructing new QiviconAPI-Instance...");
         \riwin\Logger\Logger::debug("Starting session...");
         ini_set('session.gc_maxlifetime', 28800);
