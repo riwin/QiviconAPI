@@ -1,6 +1,6 @@
 # QiviconAPI
 ## Status:
-[![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)]() [![Packagist](https://img.shields.io/packagist/vpre/riwin/qivicon-api.svg?style=flat-square)]()
+[![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)]() [![license](https://img.shields.io/github/license/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub issues](https://img.shields.io/github/issues/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/riwin/qivicon-api.svg?style=flat-square)]()
 ## Installation:
 
 ```
