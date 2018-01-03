@@ -68,7 +68,7 @@ class Temperature {
         if (!isset($_GET['param_room']) OR $_GET['param_room'] == "") {
             throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_room' fehlt oder ist leer.");
         }
-        $param_room = $_GET['param_room'];
+        $room = $_GET['param_room'];
         if (!isset($_GET['param_targetTemperature']) OR $_GET['param_targetTemperature'] == "") {
             throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_targetTemperature' fehlt oder ist leer.");
         }
