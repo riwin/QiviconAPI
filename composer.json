@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "riwin/logger": "*"
+        "riwin/logger": "*",
+        "textalk/websocket": "1.0.*"
     },
     "license": "MIT",
     "autoload": {

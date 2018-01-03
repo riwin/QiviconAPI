@@ -51,17 +51,25 @@ class QiviconAPI {
      * @var \riwin\QiviconAPI\HTTPClient
      */
     private $httpClient;
+
+    /**
+     *
+     * @var \riwin\QiviconAPI\QiviconAPI 
+     */
     private static $instance;
 
     /**
-     * 
-     * @param \riwin\QiviconAPI\QiviconAPI $qiviconAPI
-     * -
-      public static function setInstance(QiviconAPI $qiviconAPI) {
-      static::$instance = $qiviconAPI;
-      }
-
-      /**
+     *
+     * @var \WebSocket\Client 
+     */
+    private $websocketClient;
+    
+    /**
+     *
+     * @var string
+     */
+    private $hostname;
+    /**
      * 
      * @return \riwin\QiviconAPI\QiviconAPI
      */
@@ -69,6 +77,10 @@ class QiviconAPI {
         return static::$instance;
     }
 
+    /**
+     * 
+     * @param \riwin\QiviconAPI\QiviconAPI $instance
+     */
     public static function setInstance(\riwin\QiviconAPI\QiviconAPI $instance) {
         \riwin\Logger\Logger::debug("Setting static QiviconAPI-Instance...");
         static::$instance = $instance;
@@ -80,7 +92,7 @@ class QiviconAPI {
         ini_set('session.gc_maxlifetime', 28800);
         session_set_cookie_params(28800);
         session_start();
-
+        $this->hostname = $hostname;
         $this->httpClient = new \riwin\QiviconAPI\HTTPClient();
 
         if ($hostname !== "global.telekom.com") {
@@ -117,6 +129,9 @@ class QiviconAPI {
             if (isset($_GET['logout'])) {
                 session_destroy();
                 $out['logout'] = true;
+            }elseif(isset($_GET['websocket'])){
+                $this->websocketClient = new \WebSocket\Client("wss://" . $this->hostname . ":8444/remote/events?topics=[smarthome/*,system/*,com/*,de/*,org/*,system/heartbeat/alive]&access_token=" . $this->OAuth()->getAccessToken()->access_token);
+                echo $this->WebsocketClient()->receive();
             } elseif (!isset($_GET['module']) OR $_GET['module'] == "") {
                 throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'module' fehlt oder ist leer.");
             } elseif (!isset($_GET['cmd']) OR $_GET['cmd'] == "") {
@@ -207,6 +222,10 @@ class QiviconAPI {
 
     public function HTTPClient() {
         return $this->httpClient;
+    }
+    
+    public function WebsocketClient() {
+        return $this->websocketClient;
     }
 
 }
