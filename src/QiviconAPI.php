@@ -149,6 +149,8 @@ class QiviconAPI {
             $out['error'] = $this->renderException($exc);
         } catch (\riwin\QiviconAPI\Exceptions\RPCException $exc) {
             $out['error'] = $this->renderException($exc);
+        }catch (\WebSocket\ConnectionException $exc) {
+            $out['error'] = $this->renderException($exc);
         } finally {
             
         }
