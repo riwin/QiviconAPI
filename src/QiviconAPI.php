@@ -129,9 +129,6 @@ class QiviconAPI {
             if (isset($_GET['logout'])) {
                 session_destroy();
                 $out['logout'] = true;
-            }elseif(isset($_GET['websocket'])){
-                $this->websocketClient = new \WebSocket\Client("wss://" . $this->hostname . ":8444/remote/events?topics=[smarthome/*,system/*,com/*,de/*,org/*,system/heartbeat/alive]&access_token=" . $this->OAuth()->getAccessToken()->access_token);
-                echo $this->WebsocketClient()->receive();
             } elseif (!isset($_GET['module']) OR $_GET['module'] == "") {
                 throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'module' fehlt oder ist leer.");
             } elseif (!isset($_GET['cmd']) OR $_GET['cmd'] == "") {
@@ -148,8 +145,6 @@ class QiviconAPI {
         } catch (\riwin\QiviconAPI\Exceptions\QiviconAPIException $exc) {
             $out['error'] = $this->renderException($exc);
         } catch (\riwin\QiviconAPI\Exceptions\RPCException $exc) {
-            $out['error'] = $this->renderException($exc);
-        }catch (\WebSocket\ConnectionException $exc) {
             $out['error'] = $this->renderException($exc);
         } finally {
             
