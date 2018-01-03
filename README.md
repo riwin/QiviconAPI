@@ -124,7 +124,7 @@ print_r($api->execute());
 
 ### Dimmer einstellen (0-100):
 ```
-/index.php?module=Device&cmd=setDimmerCommand&param_uids={uid}&param_level={0-100}
+/index.php?module=Device&cmd=setDimmerCommand&param_uid={uid}&param_level={0-100}
 ```
 
 ### setHueCommand

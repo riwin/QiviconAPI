@@ -57,10 +57,10 @@ class Device {
     }
 
     public static function setDimmerCommand() {
-        if (!isset($_GET['param_uids']) OR $_GET['param_uids'] == "") {
-            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_uids' fehlt oder ist leer.");
+        if (!isset($_GET['param_uid']) OR $_GET['param_uid'] == "") {
+            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_uid' fehlt oder ist leer.");
         }
-        $uids = [$_GET['param_uids']];
+        $uids = [$_GET['param_uid']];
         if (!isset($_GET['param_level']) OR $_GET['param_level'] == "") {
             throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_level' fehlt oder ist leer.");
         }
