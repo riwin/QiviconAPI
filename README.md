@@ -11,7 +11,7 @@ or
 ```
 {
     "require": {
-        "riwin/qivicon-api": "dev-master"
+        "riwin/qivicon-api": "1.*"
     }
 }
 ```
