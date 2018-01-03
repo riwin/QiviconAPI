@@ -80,5 +80,11 @@ class Situation {
     public static function listKeyBindings() {
         return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'listKeyBindings']);
     }
+/**
+ * listAvailableSoundFiles
+ */
 
+    public static function listAvailableSoundFiles() {
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'listAvailableSoundFiles']);
+    }
 }
