@@ -9,7 +9,7 @@ composer require riwin/qivicon-api
 
 or
 
-```
+```json
 {
     "require": {
         "riwin/qivicon-api": "1.*"
@@ -20,7 +20,7 @@ or
 
 ## API einbinden:
 
-```
+```php
 <?php
 require_once 'vendor/autoload.php';
 header("Content-Type: application/json");
