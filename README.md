@@ -1,5 +1,6 @@
 # QiviconAPI
-
+## Status:
+[![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)]() [![Packagist](https://img.shields.io/packagist/vpre/riwin/qivicon-api.svg?style=flat-square)]()
 ## Installation:
 
 ```
