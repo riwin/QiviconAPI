@@ -1,5 +1,8 @@
 # QiviconAPI
 ## Status:
+[![QHB1](https://img.shields.io/badge/Homebase_1-kompatibel-brightgreen.svg?style=flat-square)]() 
+[![QHB2](https://img.shields.io/badge/Homebase_2-kompatibel-brightgreen.svg?style=flat-square)]() 
+[![SPS](https://img.shields.io/badge/Speedport_Smart-kompatibel-brightgreen.svg?style=flat-square)]() 
 [![Packagist](https://img.shields.io/packagist/v/riwin/qivicon-api.svg?style=flat-square)]() [![license](https://img.shields.io/github/license/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub issues](https://img.shields.io/github/issues/riwin/qivicon-api.svg?style=flat-square)]() [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/riwin/qivicon-api.svg?style=flat-square)]()
 ## Installation:
 
@@ -7,7 +10,7 @@
 composer require riwin/qivicon-api
 ```
 
-or
+oder
 
 ```json
 {
