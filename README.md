@@ -183,17 +183,17 @@ print_r($api->execute());
 
 ### setDeviceTemperature:
 ```
-/index.php?module=Temperature&cmd=setDeviceTemperature&parm_uid={uid}&param_targetTemperature={temperature}
+/index.php?module=Temperature&cmd=setDeviceTemperature&param_uid={uid}&param_targetTemperature={0.0-35.0}
 ```
 
 ### setJunkersHotWaterDeviceTemperature:
 ```
-/index.php?module=Temperature&cmd=setJunkersHotWaterDeviceTemperature&parm_uid={uid}&param_targetTemperature={temperature}
+/index.php?module=Temperature&cmd=setJunkersHotWaterDeviceTemperature&param_uid={uid}&param_targetTemperature={temperature}
 ```
 
 ### setRoomTemperature:
 ```
-/index.php?module=Temperature&cmd=setRoomTemperature&parm_room={room}&param_targetTemperature={temperature}
+/index.php?module=Temperature&cmd=setRoomTemperature&param_room={room}&param_targetTemperature={temperature}
 ```
 
 
