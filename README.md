@@ -183,6 +183,12 @@ print_r($api->execute());
 /index.php?module=Device&cmd=setTunableWhiteValuesCommand&param_uid={uid}&param_brightness={0-100}&param_colorTemperature={0-100}
 ```
 
+### setDeviceValue
+```
+Philips Hue White Ambiance:
+/index.php?module=Device&cmd=setDeviceValue&param_uid={uid}&param_value={0-100@on|off}
+```
+
 
 
 ## Modul - Temperature

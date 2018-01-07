@@ -292,4 +292,20 @@ class Device {
                     'uid' => $uid]);
     }
     
+        public static function setDeviceValue() {
+        if (!isset($_GET['param_uid']) OR $_GET['param_uid'] == "") {
+            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_uid' fehlt oder ist leer.");
+        }
+        $uid = $_GET['param_uid'];
+        if (!isset($_GET['param_value']) OR $_GET['param_value'] == "") {
+            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_value' fehlt oder ist leer.");
+        }
+        $value = $_GET['param_value'];
+
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", [
+                    'command' => 'setDeviceValue',
+                    'value' => $value,
+                    'uid' => $uid]);
+    }
+    
 }
