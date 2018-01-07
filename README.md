@@ -43,7 +43,9 @@ print_r($api->execute());
 ```
 
 ### Alarm unscharf schalten:
+```
 /index.php?module=AlarmSystem&cmd=deactivateAlarmSystem
+```
 
 ### Ausgelösten Alarm beenden:
 ```
