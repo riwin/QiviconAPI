@@ -291,5 +291,5 @@ class Device {
                     'value' => $value,
                     'uid' => $uid]);
     }
-
+    
 }
