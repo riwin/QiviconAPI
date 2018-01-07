@@ -291,21 +291,5 @@ class Device {
                     'value' => $value,
                     'uid' => $uid]);
     }
-    public static function setHueAlert(){
-        if (!isset($_GET['param_uid']) OR $_GET['param_uid'] == "") {
-            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_uid' fehlt oder ist leer.");
-        }
-        $uid = $_GET['param_uid'];
-        if (!isset($_GET['param_alert']) OR $_GET['param_alert'] == "") {
-            throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'param_alert' fehlt oder ist leer.");
-        }
-        $alert = $_GET['oaram_palert'];
-        
-        $value = $alert;
-                return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", [
-                    'command' => 'setDeviceValue',
-                    'value' => $value,
-                    'uid' => $uid]);
-    }
 
 }
