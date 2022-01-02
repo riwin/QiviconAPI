@@ -69,6 +69,13 @@ class QiviconAPI {
      * @var string
      */
     private $hostname;
+    
+    /**
+     * 
+     * @var string
+     */
+    private $serialNumber;
+    
     /**
      * 
      * @return \riwin\QiviconAPI\QiviconAPI
@@ -86,7 +93,7 @@ class QiviconAPI {
         static::$instance = $instance;
     }
 
-    public function __construct($hostname, $username, $password) {
+    public function __construct($hostname, $serialNumber, $username, $password) {
         \riwin\Logger\Logger::setLogLevel(\riwin\Logger\Logger::LEVEL_INFO);
         \riwin\Logger\Logger::debug("Constructing new QiviconAPI-Instance...");
         \riwin\Logger\Logger::debug("Starting session...");
@@ -94,6 +101,7 @@ class QiviconAPI {
         session_set_cookie_params(28800);
         session_start();
         $this->hostname = $hostname;
+        $this->serialNumber = $serialNumber;
         $this->httpClient = new \riwin\QiviconAPI\HTTPClient();
 
         if ($hostname !== "global.telekom.com") {
@@ -111,7 +119,7 @@ class QiviconAPI {
             $this->oauth = new \riwin\QiviconAPI\OAuth("yERCcGPUR9", "", $hostname, "/gcp-web-api/oauth", "/gcp-web-api/oauth", "TB4DAJ7S");
         }
         QiviconAPI::setInstance($this);
-        $this->rpc = new \riwin\QiviconAPI\RPC($hostname);
+        $this->rpc = new \riwin\QiviconAPI\RPC($hostname, $serialNumber);
         if (!$this->restoreSession()) {
             \riwin\Logger\Logger::debug("Session restore failed. Trying Credentials...");
             if (!$this->login($username, $password)) {

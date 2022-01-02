@@ -34,6 +34,7 @@ namespace riwin\QiviconAPI;
 class RPC {
 
     private $hostname;
+    private $serialNumber;
 
     /**
      *
@@ -47,8 +48,9 @@ class RPC {
      */
     private $response;
 
-    public function __construct($hostname) {
+    public function __construct($hostname, $serialNumber) {
         $this->hostname = $hostname;
+        $this->serialNumber = $serialNumber;
     }
 
     public function call($method, $params) {
@@ -63,6 +65,7 @@ class RPC {
                 $this->request->setURL("https://ris-prod-es.cloud.qivicon.com/gateway/json-rpc");
             }
             $this->request->setHeader("Authorization", "Bearer " . \riwin\QiviconAPI\QiviconAPI::getInstance()->OAuth()->getAccessToken()->get("access_token"));
+            $this->request->setHeader("QIVICON-ServiceGatewayId", $this->serialNumber);
             $body = [
                 'jsonrpc' => '2.0',
                 'method' => $method,
@@ -70,6 +73,7 @@ class RPC {
                 'id' => md5(time() . "." . mt_rand() . "." . $method)
             ];
             $this->request->setBody($body);
+            \riwin\Logger\Logger::info($this->request->getBody());
             $this->response = $this->request->make(\riwin\QiviconAPI\QiviconAPI::getInstance()->HTTPClient());
             $responseBody = json_decode($this->response->getBody());
             /*
