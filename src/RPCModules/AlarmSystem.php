@@ -44,10 +44,31 @@ class AlarmSystem {
     }
     
     public static function getAlarmSystemProperties() {
-        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getAlarmSystemProperties']);    
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getAlarmSystemProperties']); 
     }
     
     public static function getPinProperties() {
         return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getLockModePinProperties']);
     }
+    
+    // only used internaly (private)
+    private static function __setAlarmSystemProperties($properties) {
+        $params = ['command' => 'setAlarmSystemProperties'];
+        if(isset($_GET['Profile']) && $_GET['Profile'] !== ""){
+            $params['profile'] = $_GET['Profile'];
+        }
+        foreach ($properties as $property => $value) {
+            $params[$property] = $value;
+        }        
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", $params);
+    }
+    
+    public static function setAlarmSystemProperty() {
+        return AlarmSystem::__setAlarmSystemProperties([$GET_['PropertyName'] => $_GET['PropertyValue']]); 
+    }
+    
+    public static function setAlarmSystemProperties() {
+        return AlarmSystem::__setAlarmSystemProperties(json_decode($_GET['Properties']));
+    }
+    
 }
