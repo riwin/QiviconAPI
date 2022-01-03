@@ -32,8 +32,8 @@ namespace riwin\QiviconAPI;
  * @author Richard Nahm
  */
 class QiviconAPI {
-
     //put your code here
+
     /**
      *
      * @var \riwin\QiviconAPI\OAuth
@@ -63,19 +63,19 @@ class QiviconAPI {
      * @var \WebSocket\Client 
      */
     private $websocketClient;
-    
+
     /**
      *
      * @var string
      */
     private $hostname;
-    
+
     /**
      * 
      * @var string
      */
     private $serialNumber;
-    
+
     /**
      * 
      * @return \riwin\QiviconAPI\QiviconAPI
@@ -139,12 +139,28 @@ class QiviconAPI {
                 session_destroy();
                 $out['logout'] = true;
             } elseif (!isset($_GET['module']) OR $_GET['module'] == "") {
-                throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'module' fehlt oder ist leer.");
+                $modules = scandir(__DIR__ . '\\RPCModules', SCANDIR_SORT_ASCENDING);
+                $available_modules = [];
+                foreach ($modules as $index => $module) {
+                    if($module === '.'){
+                        unset($modules[$index]);
+                    }elseif($module === '..'){
+                        unset($modules[$index]);
+                    }else{
+                    $available_modules[] = str_replace('.php', '', $module);
+                    }
+                }
+                $out['available_modules'] = $available_modules;
+                $out['help'] = "Use one of the listed modules with the GET-Parameter 'module'. Example: /?module=" . $available_modules[0];
+                //throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter "module' fehlt oder ist leer.");
             } elseif (!isset($_GET['cmd']) OR $_GET['cmd'] == "") {
-                throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'cmd' fehlt oder ist leer.");
+                $out['available_commands'] = get_class_methods('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module']);
+                $out['help'] = "Use one of the listed commands with the GET-Parameter 'cmd'. Example: /?module=" . $_GET['module'] . "&cmd=". $out['available_commands'][0];
+                //throw new \riwin\QiviconAPI\Exceptions\QiviconAPIException("Der Parameter 'cmd' fehlt oder ist leer.");
+            } else {
+                $response = json_decode(call_user_func('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module'] . '::' . $_GET['cmd'])->getBody());
+                $out['rpc_response'] = $response;
             }
-            $response = json_decode(call_user_func('\\riwin\\QiviconAPI\\RPCModules\\' . $_GET['module'] . '::' . $_GET['cmd'])->getBody());
-            $out['rpc_response'] = $response;
         } catch (Exception $exc) {
             $out['error'] = $this->renderException($exc);
         } catch (\riwin\QiviconAPI\Exceptions\HTTPClientException $exc) {
@@ -229,7 +245,7 @@ class QiviconAPI {
     public function HTTPClient() {
         return $this->httpClient;
     }
-    
+
     public function WebsocketClient() {
         return $this->websocketClient;
     }
