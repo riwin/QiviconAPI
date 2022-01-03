@@ -44,9 +44,10 @@ class AlarmSystem {
     }
     
     public static function getAlarmSystemProperties() {
-        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getAlarmSystemProperties']);
-        
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getAlarmSystemProperties']);    
     }
-
     
+    public static function getPinProperties() {
+        return \riwin\QiviconAPI\QiviconAPI::getInstance()->RPC()->call("SMHM/executeCommand", ['command' => 'getLockModePinProperties']);
+    }
 }
