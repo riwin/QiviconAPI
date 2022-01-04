@@ -29,7 +29,7 @@ oder
 <?php
 require_once 'vendor/autoload.php';
 header("Content-Type: application/json");
-$api = new \riwin\QiviconAPI\QiviconAPI("hostname-Homebase", "email@mein.qivicon", "Passwort");
+$api = new \riwin\QiviconAPI\QiviconAPI("hostname-Homebase", "Serien-Nummer", "email@mein.qivicon", "Passwort");
 print_r($api->execute());
 ```
 
